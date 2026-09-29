@@ -1,0 +1,4 @@
+<?php
+require __DIR__.'/includes/bootstrap.php';$id=filter_input(INPUT_GET,'id',FILTER_VALIDATE_INT);
+if(!$id){http_response_code(404);exit('Product not found.');}$s=$pdo->prepare('SELECT id,name,description,price FROM products WHERE id=? AND active=1');$s->execute([$id]);$p=$s->fetch();if(!$p){http_response_code(404);exit('Product not found.');}
+$pageTitle=$p['name'];require __DIR__.'/includes/header.php';?><article class="product-detail"><div class="product-placeholder">Product Image</div><div><h1><?=e($p['name'])?></h1><p><?=e($p['description'])?></p><p class="price">$<?=number_format((float)$p['price'],2)?></p><form action="/cart.php" method="post"><input type="hidden" name="product_id" value="<?=(int)$p['id']?>"><label>Quantity<input type="number" name="quantity" value="1" min="1" max="20"></label><button type="submit">Add to cart</button></form></div></article><?php require __DIR__.'/includes/footer.php';?>

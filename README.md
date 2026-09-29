@@ -3,37 +3,36 @@
 A custom-built e-commerce application demonstrating a lightweight, database-driven approach to online commerce without relying on a CMS or pre-built e-commerce platform.
 
 ## Features
-
 - Product and category management
-- Shopping cart functionality
-- Customer accounts and authentication
+- Session-based shopping cart
+- Customer registration and authentication
 - Order creation and management
-- Custom administrative interface
-- MySQL database integration
+- Custom administrative overview
+- PDO prepared statements
+- Password hashing and session regeneration
 - Responsive front-end design
-- Secure server-side PHP development
-- Product image and content management
-- Email and order workflow integration
 
 ## Technology
+PHP 8+, MySQL, PDO, HTML5, CSS3 and JavaScript.
 
-- PHP
-- MySQL
-- HTML5
-- CSS3
-- JavaScript
-- Responsive Web Design
+## Local Setup
+1. Import `database/schema.sql`.
+2. Copy `config/config.example.php` to `config/config.local.php`.
+3. Add local database credentials.
+4. Point a PHP web server at the project directory.
+5. Open `index.php`.
+
+`config/config.local.php` is excluded from Git so credentials are never committed.
+
+## Security Notes
+This demonstration uses prepared statements, password hashing, session ID regeneration, output escaping, input validation, and transactional order creation. The admin overview is intentionally a demonstration and should be protected with role-based authorization before production use.
+
+No production credentials, customer information, API keys, or proprietary client code are included.
 
 ## Purpose
-
-This repository is a portfolio demonstration of the architecture and development techniques I use when building custom PHP/MySQL web applications.
-
-It is based on functionality I have implemented in production e-commerce projects, but has been separated from client and production code so that no proprietary information, customer data, credentials, API keys, or other sensitive information is exposed.
+This repository demonstrates architecture and development techniques I use when building custom PHP/MySQL web applications. It reflects functionality I have implemented in production e-commerce work while keeping client and production code separate.
 
 ## About Me
-
 I'm a senior full-stack web developer and technical consultant with 20+ years of professional experience building custom websites, e-commerce systems, WordPress solutions, database-driven applications, booking systems, API integrations, and business administration tools.
 
-Portfolio and additional work:
-
-https://joestebbins.dev
+Portfolio: https://joestebbins.dev

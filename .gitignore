@@ -1,20 +1,11 @@
-# Environment and credentials
 .env
 .env.*
 config.local.php
-config/database.php
-
-# Dependencies
+/config/config.local.php
 /vendor/
-
-# User-generated files
 /uploads/
-
-# Logs
 *.log
 /logs/
-
-# Operating system / editor files
 .DS_Store
 Thumbs.db
 .idea/

@@ -1,0 +1,4 @@
+<?php
+require __DIR__.'/includes/bootstrap.php';$error='';
+if($_SERVER['REQUEST_METHOD']==='POST'){$email=filter_input(INPUT_POST,'email',FILTER_VALIDATE_EMAIL);$pw=$_POST['password']??'';if($email){$s=$pdo->prepare('SELECT id,password_hash FROM users WHERE email=?');$s->execute([$email]);$u=$s->fetch();if($u&&password_verify($pw,$u['password_hash'])){session_regenerate_id(true);$_SESSION['user_id']=(int)$u['id'];redirect('/account.php');}}$error='Invalid email or password.';}
+$pageTitle='Login';require __DIR__.'/includes/header.php';?><h1>Login</h1><?php if($error):?><p class="error"><?=e($error)?></p><?php endif;?><form method="post" class="form-card"><label>Email<input type="email" name="email" required></label><label>Password<input type="password" name="password" required></label><button>Login</button><p>New customer? <a href="/register.php">Create an account</a>.</p></form><?php require __DIR__.'/includes/footer.php';?>
