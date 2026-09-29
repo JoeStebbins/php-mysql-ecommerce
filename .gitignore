@@ -1,0 +1,21 @@
+# Environment and credentials
+.env
+.env.*
+config.local.php
+config/database.php
+
+# Dependencies
+/vendor/
+
+# User-generated files
+/uploads/
+
+# Logs
+*.log
+/logs/
+
+# Operating system / editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
